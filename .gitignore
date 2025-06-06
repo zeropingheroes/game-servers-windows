@@ -1,0 +1,13 @@
+SteamCMD/*
+!SteamCMD/download.bat
+
+# Ignore directories named "server" as they
+# are used for storing the game server binaries
+**/server/**
+
+# Ignore all log files
+*.log
+*/logs/*
+
+self-install-completed
+installation-completed
