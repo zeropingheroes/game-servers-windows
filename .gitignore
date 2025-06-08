@@ -1,5 +1,5 @@
 SteamCMD/*
-!SteamCMD/download.bat
+!SteamCMD/install.ps1
 
 # Ignore directories named "server" as they
 # are used for storing the game server binaries
@@ -8,6 +8,3 @@ SteamCMD/*
 # Ignore all log files
 *.log
 */logs/*
-
-self-install-completed
-installation-completed

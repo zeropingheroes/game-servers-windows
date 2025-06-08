@@ -3,20 +3,39 @@ Windows game server configs, launchers and downloaders for our LAN parties.
 
 ## Installation
 
-1. Run `SteamCMD/download.bat`to download SteamCMD in the default browser
+## Prerequisites
 
-2. Extract `steamcmd.zip` into `SteamCMD`
+- Windows 10 or later
+- PowerShell 5.1 or later
+- Administrator privileges
+
+### Enable PowerShell Script Execution
+
+Before running the scripts, you need to enable PowerShell script execution:
+
+1. Open PowerShell as Administrator
+2. Allow local scripts to run: 
+   ```
+   Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+   ```
+3. Unblock the scripts in this repository:
+   ```
+   Get-ChildItem -Path . -Recurse -Filter *.ps1 | Unblock-File
+   ```
 
 ## Usage
 
-In each of the game folders, if present, run the following batch files in this order:
+Run the main script with administrator privileges:
 
-1. `install.bat` - Download and install the game files (some manual extraction may be required)
+```powershell
+.\game-servers.ps1 install <game>
+.\game-servers.ps1 launch <game>
+```
 
-2. `copy-configs.bat` - Copy configuration files from the `configs/` directory in that folder into the game server's directory
+## Configuration
 
-3. `launch.bat` - Launch the game server
+Configuration files are automatically symlinked to the server directory when launching the server.
 
-## Editing Config files
+## Troubleshooting
 
-All config files in the `configs` directory are **copied** into the game server's folder, so if you update a config file, re-run `copy-configs.bat` to allow the game server to pick up the new version of the file.
+If you get an error about script execution being disabled, follow the steps in the "Enabling PowerShell Script Execution" section above.
