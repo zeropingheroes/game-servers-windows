@@ -14,6 +14,6 @@ $steamUsername = Read-Host "Enter your Steam username"
 Install-SteamApp -gamePath $scriptPath -appId 2403 -steamUsername $steamUsername -validate:$Validate
 
 Write-Host "Creating config symlinks..."
-CreateConfigSymlinks -gamePath $scriptPath
+CreateConfigFileLinks -gamePath $scriptPath
 
 Write-Host "Installation complete!"

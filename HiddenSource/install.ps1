@@ -68,9 +68,10 @@ Move-Item -Path $hiddenPath2 -Destination $serverPath -Force
 Write-Host "Updating Source SDK Base 2006..."
 Install-SteamApp -gamePath $scriptPath -appId 215 -validate:$Validate
 
-Write-Host "Creating config symlinks..."
-CreateConfigSymlinks -gamePath $scriptPath
 Write-Host "Updating Source Dedicated Server..."
 Install-SteamApp -gamePath $scriptPath -appId 205 -validate:$Validate
+
+Write-Host "Creating config hard links..."
+CreateConfigFileLinks -gamePath $scriptPath -LinkType HardLink
 
 Write-Host "Installation complete!"

@@ -45,9 +45,11 @@ function Install-SteamApp {
     }
 }
 
-function CreateConfigSymlinks {
+function CreateConfigFileLinks {
     param (
-        [string]$gamePath
+        [string]$gamePath,
+        [ValidateSet("SymbolicLink", "HardLink")]
+        [string]$LinkType = "SymbolicLink"
     )
     
     $configPath = Join-Path $gamePath $CONFIG_DIR
@@ -59,20 +61,32 @@ function CreateConfigSymlinks {
         return
     }
     
-    # Get all config files
-    $configFiles = Get-ChildItem -Path $configPath -File
+    # Get all config files recursively
+    $configFiles = Get-ChildItem -Path $configPath -File -Recurse
     
     foreach ($file in $configFiles) {
         $sourcePath = $file.FullName
-        $targetPath = Join-Path $serverPath $file.Name
         
-        # Remove existing file/symlink if it exists
+        # Calculate relative path from config root
+        $relativePath = $file.FullName.Substring($configPath.Length).TrimStart('\','/')
+        
+        # Construct target path with same directory structure
+        $targetPath = Join-Path $serverPath $relativePath
+        
+        # Ensure target directory exists
+        $targetDir = Split-Path $targetPath -Parent
+        if (-not (Test-Path $targetDir)) {
+            New-Item -ItemType Directory -Path $targetDir -Force | Out-Null
+        }
+        
+        # Remove existing item if present
         if (Test-Path $targetPath) {
             Remove-Item $targetPath -Force
         }
         
-        # Create symlink
-        New-Item -ItemType SymbolicLink -Path $targetPath -Target $sourcePath -Force | Out-Null
-        Write-Host "Created symlink for $($file.Name)"
+        # Create link of the specified type
+        New-Item -ItemType $LinkType -Path $targetPath -Target $sourcePath -Force | Out-Null
+        Write-Host "Created $LinkType at $targetPath"
     }
 }
+
