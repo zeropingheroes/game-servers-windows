@@ -8,3 +8,5 @@ SteamCMD/*
 # Ignore all log files
 *.log
 */logs/*
+
+*.exe
