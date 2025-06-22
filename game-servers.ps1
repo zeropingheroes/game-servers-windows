@@ -48,12 +48,7 @@ try {
             # Run game-specific install script
             $installScript = Join-Path $gamePath "install.ps1"
             if (Test-Path $installScript) {
-                & $installScript -Validate:$Validate
-                
-                # Create config symlinks if not SteamCMD
-                if ($Game -ne 'SteamCMD') {
-                    CreateConfigSymlinks -gamePath $gamePath
-                }
+                & $installScript -Validate:$Validate    
             } else {
                 throw "Install script not found for $Game"
             }
