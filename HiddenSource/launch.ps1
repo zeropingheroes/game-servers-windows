@@ -11,12 +11,10 @@ $serverDir = Join-Path $scriptPath $SERVER_DIR
 $srcdsPath = Join-Path $serverDir "srcds.exe"
 
 $srcdsArgs = @(
-    "-console",
     "-game", "hidden",
-    "+exec", "server-zph.cfg",
+    "-console"
     "+sv_lan", "1",
-    "-maxplayers", "10",
-    "+map", "hdn_derelict"
+    "+exec", "zph-hidden.cfg"
 )
 
 Start-Process -FilePath $srcdsPath -ArgumentList $srcdsArgs
