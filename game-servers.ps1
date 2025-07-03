@@ -2,7 +2,7 @@
 
 param(
     [Parameter(Mandatory=$true, Position=0)]
-    [ValidateSet('install', 'launch')]
+    [ValidateSet('install', 'launch', 'configure')]
     [string]$Command,
     
     [Parameter(Mandatory=$true, Position=1)]
@@ -61,6 +61,9 @@ try {
             } else {
                 throw "Launch script not found for $Game"
             }
+        }
+        'configure' {
+            CreateConfigFileLinks -gamePath $gamePath -LinkType HardLink
         }
         default {
             throw "Invalid command. Use 'install' or 'launch'."
