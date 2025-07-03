@@ -6,7 +6,7 @@ param(
     [string]$Command,
     
     [Parameter(Mandatory=$true, Position=1)]
-    [ValidateSet('TheShip', 'HiddenSource', 'SteamCMD')]
+    [ValidateSet('TheShip', 'HiddenSource', 'GoldenEyeSource', 'SteamCMD')]
     [string]$Game,
 
     [Parameter(Mandatory=$false)]
