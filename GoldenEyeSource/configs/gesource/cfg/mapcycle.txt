@@ -1,7 +1,19 @@
-ge_runway
-ge_control
-ge_silo
-ge_cradle
-ge_egyptian
-ge_facility_backzone
-ge_archives
+ge_facility             // 4 - 12 players
+ge_egyptian             // 4 - 12 players
+ge_runway               // 9 players
+ge_cradle               // 6 - 12 players
+ge_control              // 6 - 12 players
+ge_archives             // 10 - 16 players
+ge_silo                 // 8 - 12 players
+ge_facility_backzone    // 4 - 12 players
+ge_bunker               // 6 - 16 players
+ge_basement             // 4 - 12 players
+ge_casino               // 6 - 10 players
+ge_caverns              // 6 - 16 players
+ge_complex              // 4 - 10 players
+ge_dam                  // 6 - 16 players
+
+// Bad maps
+ge_aztec                // 8 - 16 players
+ge_depot                // 6 - 16 players
+ge_caves                // 4 - 12 players

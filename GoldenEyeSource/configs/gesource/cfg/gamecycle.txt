@@ -1,3 +1,10 @@
-DeathMatch
-MWGG
-Gungame
+deathmatch
+mwgg
+gungame
+drnoarmor
+yolt
+capturetheflag
+livingdaylights
+guntrade
+viewtoakill
+arsenal
