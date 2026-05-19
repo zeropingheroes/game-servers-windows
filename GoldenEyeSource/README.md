@@ -2,7 +2,7 @@
 
 ## `changelevel`
 
-End the match and change to the specified level
+End the match and change to the specified level.
 
 ## `ge_restartround`
 
@@ -28,7 +28,7 @@ Print the game modes on the server.
 ## `ge_gameplaylistrefresh`
 
 Refresh the list of game modes. Useful if you added a gameplay while the server
-was running
+was running.
 
 ## `ge_weaponset_list`
 
@@ -43,7 +43,9 @@ was running.
 
 Print the server’s map selection data.
 
-## `ge_print_current_map_data` Print the current map’s data.
+## `ge_print_current_map_data`
+
+Print the current map’s data.
 
 ## `ge_print_map_selection_weights`
 
