@@ -1,6 +1,5 @@
 deathmatch
 mwgg
-gungame
 drnoarmor
 yolt
 capturetheflag
