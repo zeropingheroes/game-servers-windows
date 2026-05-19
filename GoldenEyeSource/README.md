@@ -52,7 +52,10 @@ Print the current map’s data.
 Print the map selection chance for given player count, or current playercount if
 none is given. Use 1 as second parameter for unsorted list.
 
-## `ge_bot` Adds a bot.
+## `ge_bot`
 
-## `ge_bot_remove` Removes number of bots. If no number is supplied it removes
-  them all.
+Adds a bot.
+
+## `ge_bot_remove`
+
+Removes number of bots. If no number is supplied it removes them all.
